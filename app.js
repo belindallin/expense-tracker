@@ -3,12 +3,10 @@ const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const Record = require('./models/Record.js')
 const bodyParser = require('body-parser')
-
+const methodOverride = require('method-override')
 
 const app = express()
 const POST = 3000
-
-
 
 mongoose.connect('mongodb://localhost/expense_tracker', {useNewUrlParser: true, useUnifiedTopology: true})
 const db = mongoose.connection
@@ -20,6 +18,8 @@ db.once('open',() => {
 app.engine('handlebars',exphbs({defaultLayout : 'main'}))
 app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(methodOverride('_method'))
+
 
 app.get('/', (req, res) => {  
   Record.find()
@@ -42,7 +42,7 @@ app.get('/record/:id/edit', (req, res) => {
   .then(record => res.render('edit',{record}))
   .catch(error => console.log(error))
 })
-app.post('/record/:id', (req, res) => {  
+app.put('/record/:id', (req, res) => {  
   const id = req.params.id
   return Record.findById(id)
         .then(record => {
@@ -52,7 +52,7 @@ app.post('/record/:id', (req, res) => {
         .then(() => res.redirect('/'))
         .catch(error => console.log(error))
 })
-app.post('/record/:id/delete', (req, res) => {  
+app.delete('/record/:id', (req, res) => {  
   const id = req.params.id
   return Record.findById(id)
         .then(record => record.remove())

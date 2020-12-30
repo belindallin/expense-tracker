@@ -3,7 +3,7 @@
     <p class="col-sm-3" style="font-size:12px">*必填欄位</p>
     <p>請輸入你的支出</p>
   </div>
-  <form action="/record/{{record._id}}" method="POST">
+  <form action="/record/{{record._id}}?_method=PUT" method="POST">
     <div class="row mb-4  d-flex align-items-center">
       <p class="col-sm-3">名稱*：</p>
       <input type="text" placeholder="花費項目" name="name" value="{{record.name}}" class="col-sm-5"  required>
