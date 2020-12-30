@@ -1,11 +1,7 @@
-const mongoose = require('mongoose')
 const Record = require('../Record.js')
+const db = require('../../config/mongoose')
 
-mongoose.connect('mongodb://localhost/expense_tracker', {useNewUrlParser: true, useUnifiedTopology: true})
-const db = mongoose.connection
-db.on('error', () => console.log('mongodb error!'))
 db.once('open',() => {
-  console.log('mongodb connected')
   Record.create({
     name : '洗面乳',
     date : '10/10/2020',
