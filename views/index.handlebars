@@ -27,12 +27,14 @@
         </div>
       </div>
       <div class="buttonGroup col-sm-4 d-flex">
-        <a class="btn btn-warning mr-1" style="width:80px;height:40px;font-size:20px;" href="">修改</a>
-        <a class="btn btn-secondary" style="width:80px;height:40px;font-size:20px;" href="">刪除</a>
+        <a class="btn btn-warning mr-1" style="width:80px;height:40px;font-size:20px;" href="/record/{{this._id}}/edit">修改</a>
+        <form action="/record/{{this._id}}/delete" method="POST">
+          <button class="btn btn-secondary" style="width:80px;height:40px;font-size:20px;">刪除</button>
+        </form>
       </div>
     </div>
   {{/each}}
   <div class="d-flex" style="margin-left:70px;">
-    <a class="btn btn-success mt-3" style="width:150px;font-size:20px" href="">新增支出</a>
+    <a class="btn btn-success mt-3" style="width:150px;font-size:20px" href="/record/new">新增支出</a>
   </div>
 </div>

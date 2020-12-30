@@ -1,0 +1,39 @@
+<div class="container" style="width:40vw;font-size:20px">
+  <div class="row mt-2 mb-4 d-flex align-items-center">
+    <p class="col-sm-3" style="font-size:12px">*必填欄位</p>
+    <p>請輸入你的支出</p>
+  </div>
+  <form action="/record/{{record._id}}" method="POST">
+    <div class="row mb-4  d-flex align-items-center">
+      <p class="col-sm-3">名稱*：</p>
+      <input type="text" placeholder="花費項目" name="name" value="{{record.name}}" class="col-sm-5"  required>
+    </div>
+    <div class="row mb-4  d-flex align-items-center">
+      <p class="col-sm-3">日期*：</p>
+      <input type="text" placeholder="mm/dd/yyyy" name="date" value="{{record.date}}" class="col-sm-5" required>
+    </div>
+    <div class="row mb-4  d-flex align-items-center">
+      <p class="col-sm-3">類別*：</p>
+      <div class="form-group pl-0 pr-0 col-sm-5">
+        <select class="form-control " id="category" name="category">
+          <option>全部類別</option>
+          <option>家居物業</option>
+          <option>交通出行</option>
+          <option>休閒娛樂</option>
+          <option>餐飲食品</option>
+          <option>其他</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mb-4  d-flex align-items-center">
+      <p class="col-sm-3">金額*：</p>
+      <input type="number" placeholder="ex:500" name="amount" value="{{record.amount}}" class="col-sm-5"  required>
+    </div>    
+    <div class="row">
+      <p class="col-sm-3"></p>
+      <button type="submit"class="btn btn-success mt-3" style="width:150px;font-size:20px">送出</button>
+    </div> 
+  </form>
+</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Noto+Sans+TC&display=swap" rel="stylesheet">
