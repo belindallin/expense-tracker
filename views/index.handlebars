@@ -1,0 +1,38 @@
+<div class="container d-flex flex-column p-0 " style="width:40vw;height:500px;">
+  <div class="form-group mt-3" style="width:20vw">
+    <select class="form-control" id="category" name="category">
+      <option>全部類別</option>
+      <option>家居物業 </option>
+      <option>交通出行</option>
+      <option>休閒娛樂</option>
+      <option>餐飲食品</option>
+      <option>其他</option>
+    </select>
+  </div>
+  <div class="amount d-flex align-items-start ml-15px" style="width:30vw">
+    <p style="font-size:32px">總金額:</p>
+    <p class="cost ml-5 justify-content-end" style="font-size:48px;color:tomato">25260</p>
+  </div>
+  {{#each record}}
+  <div class="detail" style="height:300px">
+    <div class="row d-flex  align-items-center">
+      <div class="col-sm-5 d-flex  align-items-center mr-5 " style="margin-left:15px">
+        <i class="fas fa-utensils fa-3x mx-2" style="color:#5DBBEF"></i>
+        <div class="d-flex flex-column mr-5">
+          <p class="detailName m-0" style="font-size:20px">{{this.name}}</p>
+          <p class="detailDate mr-auto" style="font-size:14px">{{this.date}}</p>
+        </div>
+        <div class="expense mx-5" style="width:70px">
+          <p class="detailExpense" style="font-size:20px">{{this.amount}}</p>
+        </div>
+      </div>
+      <div class="buttonGroup col-sm-4 d-flex">
+        <a class="btn btn-warning mr-1" style="width:80px;height:40px;font-size:20px;" href="">修改</a>
+        <a class="btn btn-secondary" style="width:80px;height:40px;font-size:20px;" href="">刪除</a>
+      </div>
+    </div>
+  {{/each}}
+  <div class="d-flex" style="margin-left:70px;">
+    <a class="btn btn-success mt-3" style="width:150px;font-size:20px" href="">新增支出</a>
+  </div>
+</div>
