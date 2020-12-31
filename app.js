@@ -3,9 +3,14 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const routes = require('./routers')
+const handlebars = require('handlebars')
 
 const app = express()
 const POST = 3000
+
+handlebars.registerHelper('ifEquals', function (selectedCategory, category, options) {
+  return (selectedCategory === category)? options.fn(this) : options.inverse(this)
+})
 
 require('./config/mongoose')
 
