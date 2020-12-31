@@ -1,17 +1,30 @@
 const express = require('express')
 const router = express.Router()
 const Record = require('../../models/Record')
+const Category = require('../../models/Category')
 
 router.get('/', (req, res) => {  
   let sum = 0
   const selectedCategory = req.query.category
   Record.find()
   .lean()
-  .then(records => {    
-    const record = records.filter(record => record.category === selectedCategory )
-    record.filter( record => sum += record.amount)
-    res.render('index',{record, selectedCategory, sum})
-  })
+  .then(records => {
+    Category.find()
+    .lean()
+    .then(category => {
+      const record = records.filter(record => record.category === selectedCategory )
+      record.forEach(record => {
+        sum += record.amount
+        category.forEach(category => {
+          if( record.category === category.name ){
+            record.icon = category.icon
+          }
+        })
+      })
+      res.render('index',{record, selectedCategory, sum})
+    })
+    .catch(error => console.log(error))
+    })    
   .catch(error => console.log(error))
 })
 
