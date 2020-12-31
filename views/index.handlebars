@@ -16,9 +16,9 @@
   {{#each record}}
   <div class="detail" style="height:300px">
     <div class="row d-flex  align-items-center">
-      <div class="col-sm-5 d-flex  align-items-center mr-5 " style="margin-left:15px">
+      <div class="col-sm-7 d-flex  align-items-center" style="margin-left:15px">
         <i class="fas fa-utensils fa-3x mx-2" style="color:#5DBBEF"></i>
-        <div class="d-flex flex-column mr-5">
+        <div class="d-flex flex-column mr-5" style="width:100px">
           <p class="detailName m-0" style="font-size:20px">{{this.name}}</p>
           <p class="detailDate mr-auto" style="font-size:14px">{{this.date}}</p>
         </div>
@@ -33,6 +33,7 @@
         </form>
       </div>
     </div>
+  </div>
   {{/each}}
   <div class="d-flex" style="margin-left:70px;">
     <a class="btn btn-success mt-3" style="width:150px;font-size:20px" href="/record/new">新增支出</a>
