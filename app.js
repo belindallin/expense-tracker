@@ -6,7 +6,7 @@ const routes = require('./routers')
 const handlebars = require('handlebars')
 
 const app = express()
-const POST = 3000
+const POST = process.env.PORT || 3000
 
 handlebars.registerHelper('ifEquals', function (selectedCategory, category, options) {
   return (selectedCategory === category)? options.fn(this) : options.inverse(this)
