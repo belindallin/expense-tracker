@@ -4,7 +4,7 @@ const Record = require('../../models/Record')
 const Category = require('../../models/Category')
 
 router.get('/', (req, res) => {  
-  let sum = 0
+  let totalAmount = 0
   Record.find()
   .lean()
   .then(record => {
@@ -12,14 +12,14 @@ router.get('/', (req, res) => {
     .lean()
     .then(category => {
       record.forEach(record => {
-        sum += record.amount
+        totalAmount += record.amount
         category.forEach(category => {
           if( record.category === category.name ){
             record.icon = category.icon
           }
         })
       })
-      res.render('index',{record, sum})
+      res.render('index',{record, totalAmount})
     })
     .catch(error => console.log(error))
     })    
