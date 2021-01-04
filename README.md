@@ -18,7 +18,8 @@
 ## Install 安裝與執行步驟
 ### 以下指令請在終端機操作
 1. Clone此專案至本機
-```shell
+```
+shell
 git clone https://github.com/belindallin/expense-tracker.git
 ```
 2. 進入存放專案的資料夾
